@@ -2,20 +2,50 @@
 <html>
 <head>
     <style>
-        body { margin:0; font-family:Arial,sans-serif;}
-        .nav { background:#f7f7f7; padding:8px;}
-        .nav a { margin:0 10px; text-decoration:none; color:#333;}
+        body {
+            margin: 0; padding: 0;
+            background: #283e4a;
+            color: #fff;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            padding: 0 30px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 18px;
+            font-size: 1rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        nav a:hover {
+            background: #485669;
+        }
     </style>
 </head>
 <body>
-    <div class="nav">
-        <img src="https://img.jagranjosh.com/images/2024/February/2222024/Dronacharya-Group-of-Institutions-GN.jpg" alt="College Logo" height="145" style="vertical-align:middle;">
-        <span style="font-weight:bold;font-size:20px;">My College Bookstore</span>
-        <a href="right.html" target="rightFrame">Home</a>
-        <a href="login.html" target="rightFrame">Login</a>
-        <a href="registration.html" target="rightFrame">Registration</a>
-        <a href="catalogue.html" target="rightFrame">Catalogue</a>
-        <a href="cart.html" target="rightFrame">Cart</a>
+    <div class="container">
+        <span class="logo">Heaven Of Books</span>
+        <img src="data:image/webp;base64,UklGRmIGAABXRUJQVlA4IFYGAAAwHgCdASp8AIwAPp1Mn0wlpCKiI536ILATiWcKFshIzJwpDTgI2r4U9/vyf7YfjNwGn8d6AfPp83/Yvcd2A/BnUC/Gv5huouc/5L0AvWL6d3zWoF2s9Ev8x/2HlG+BvQA/mf9p/8fqH50nqD2Cf1263g9KTYKPtdc/lQuQ4WRxOVmEa8h45ppNj6fbLB1FQUUXbmPMzj4rX1US0KtdddM0l/RqOoFcB1fyxBXA4/kvYmjwTQQHMXVGv9kae8ILnKm6MzhvzpRGHX534H7/ZSZ5hnjKCFDOm+pvLeof4+iGOLaFlERX4vjhU5jVgYyAhraECk2Cj7XXP5RwAP7/VugAAFUbgsva1u9vycT6D3CNnjkMFLt/x5Zt3vAfbNnR03T8VPCe4Z6f1Ywark7HMoZOkf+XJpsNqTJGTGR77vfVSa+lBJCRP/mweYH4mAfAJbQDVwAobQv08O44G7GuHsAf+M6vBx+F49d5Oc05jcIqr49WX3fB6eCllSVv3z4Ndjlmhhx7dx1n/wKJ4MsJ1d5C7QISclUpT9rg9emJrTKjKeUKJVQXTzWiF05v9jiUqVbkjWoztqySunALLQ0Toz68ACfMar3BM60IuRiAtsIUr7IdV3LGTYR3vgIyQCIbALIz3cYSPbF5Ey7F+RxGGMKAbF7ShrOMm0Rp3gFVqkY9VVJ4nKAxObb4riAk1md/xBE2sJ4jD4p6BCkFcEP5GeYJ9nAC+K65YQJJA5qHiVJH2It1JvvxiYg8AoxwWJt3aPaMJi+oWDa8vr2dP7xn4V4HLtKsT1S2ACDN4+d5zK8/b9jUcNfflcsIuBHl6scow/hQFFtlM/NJzT3flEZYIF8kRYzLUyPX/ue2ujXdKW6tK7JGG/F5vk1XCvt7hnOuvHiEyToctWichTY9hLwoVBEto8ssmxa8LBNHG9VMVTeetPpJSvDjtJgXhzTwvyKBTUhGKMbudwjIWG275KveONszQlxwYlkksqjjG4so3YuaiH4mGJEnUQKCm3vcHqhxgrGdQEdPEykurhCL/zGTWHfmX4n/eorH4AoXhdFWDB5L1T4+kSeuBpcqgRJmPc/waEenIynpYk3f5WwZ+kH0/oCcv4L6aOJCQjT1DtOywZaDUj8JpYCfUhXnp/4zDpEFZH+GfB+CQr1SIiiI7IQ38+KIpzJ59lE54HoyA+SSctq2toX1heW/pYY+xgYrU+iyUQ4E/XXVVdRqv3RdqzARXUjzEKs8hvev7Ymn3JbMfZyin9Rzot360KqO3ExWMpw+ryonS+Re206JqX44dxf6byGMHxE2QBVzAyaCw0mKSCX7i2yr4mX8frwD9xe86hqxB8BI5w3H+F/vSg3yxFhhPdUPZrRl44hLuKrANhqao3pxiPOF8uT17AvJFLu6zrVh56Zaq3+IJOJ9Z7BWB8hGfM5pLkhxcll3Jz1a+3+CwZASyII3j12Vw3C7IOlIyxP4EeP8KZ1vAkOQdTh/yV9363mw4OBY+8soews+k8nW+FnO89WlCjmx58smWWHJCJyLJIY0ZWSRdelVLTpCyNUtvIvVnKl6cNEUydl/VQFdgV0RWY1Axxoxk/ag7xq/rAHDyr4PaW9KbLdXLO5eAorGN4BNmc6jmBmj+P+XaJfN1Wjz2MouyZSugzWuaTph9Rq8eGSO/BvVb7/9qx+Qwl4Td2O4R+3hFq/xPIMKFXRShMARkyM7f+I5B8zXphKdm5Z0GCXYx6jd94zsquZsOS5E6FtUmsuesW9P8ZsDnLty5A/LZOG4PNXbhCYTui4oUDzdj31j5WKiZrHVzPkZwZdKVdELLAr8qE8XxYYr8qryV83S6bRyz45UGw+34nDX9V+0xiLPvl2Xvp02nBVVx20OsYJ7AEntuPWZfXoSpiexKhfwZoNk0q/kVJgGegERQCOggOAZcejOC9WmmX+/HCwGTiHXY2ZfB5AUCDjwYKbI6fqHVQVDugnFEZm4cq0H5bvvzG0HC27IhT2n59twfnrgOle/7h6dq9SBvk3SCTz94wlgcaUjuEo4FJIU/GR8Byj33QyWR8UHe9mYsIfReVf9Gz5hZ9QA3jebJO13jtvRpuaaCBSbANkb86+4H4t7gI0k4BSfALW4jLZByM0XoVV+X4xmQ+jdSLUVWqMB1v+dKWMwE+QAAAAAAA==" alt="">
+        <nav>
+            <a href="right.html" target="rightFrame">Home</a>
+            <a href="login.html" target="rightFrame">Login</a>
+            <a href="registration.html" target="rightFrame">Registration</a>
+            <a href="catalogue.html" target="rightFrame">Catalogue</a>
+            <a href="cart.html" target="rightFrame">Cart</a>
+        </nav>
     </div>
 </body>
 </html>
+
