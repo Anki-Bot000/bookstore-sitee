@@ -1,96 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Catalogue Page</title>
+    <title>Book Catalogue</title>
+    <link href="https://fonts.googleapis.com/css?family=Segoe+UI:400,600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #f8fafd;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        h2 { text-align:center; color:#283e4a; font-weight:600; margin-top:32px;}
+        table {border-collapse:collapse; width:95%; margin:0 auto; background:#fff; box-shadow:0 6px 32px rgba(40,62,74,0.09); border-radius:12px;}
+        th, td {padding:15px 11px; text-align:left;}
+        th {background:#283e4a;color:#fff;font-weight:600;}
+        tr:nth-child(even) {background:#f4f6fa;}
+        td img {border-radius:5px; box-shadow:0 4px 12px rgba(40,62,74,0.10);}
+        button {padding:6px 18px; border:none;border-radius:5px;background:#283e4a;color:#fff;cursor:pointer; font-weight:600;}
+        button:hover {background:#374b63;}
+    </style>
+    <script>
+        function addToCart(book) {
+            let cart = localStorage.getItem('cart_items');
+            cart = cart ? JSON.parse(cart) : [];
+            cart.push(book);
+            localStorage.setItem('cart_items', JSON.stringify(cart));
+            alert("Book added to cart!");
+        }
+    </script>
 </head>
 <body>
     <h2>Book Catalogue</h2>
-    <form>
-        <table border="1" cellpadding="8" cellspacing="0">
-            <tr>
-                <th>Select</th>
-                 <th>Book Image</th>
-                <th>Book Title</th>
-                <th>Author</th>
-                <th>Department</th>
-                <th>Price</th>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="book1"></td>
-                <td><img src="https://3.bp.blogspot.com/-t7-Y94gUMFs/Ui7U3i-uAdI/AAAAAAAAARY/zaBfpYu9TJI/s1600/cn.png" alt="Computer Networks" width="60"></td>
-                <td>Computer Networks</td>
-                <td>Andrew S. Tanenbaum</td>
-                <td>CSE</td>
-                <td>₹500</td>
-            </tr>
-             <tr>
-                <td><input type="checkbox" name="book2"></td>
-                <td><img src="https://m.media-amazon.com/images/I/71kBRLo8ZtL._SL1414_.jpg" alt="Data Structures" width="60"></td>
-                <td>Data Structures and Algorithms</td>
-                <td>Alfred V. Aho</td>
-                <td>CSE</td>
-                <td>₹550</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="book3"></td>
-                <td><img src="https://tse4.mm.bing.net/th/id/OIP.vkyFhWbJIo1ijE0pNpuNiAAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Operating Systems" width="60"></td>
-                <td>Operating System Concepts</td>
-                <td>Silberschatz, Galvin</td>
-                <td>CSE</td>
-                <td>₹600</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="book2"></td>
-                <td><img src="https://logicwork.in/wp-content/uploads/2022/07/Signals-and-Systems-by-Oppenheim.jpeg" alt="Signals and Systems" width="60"></td>
-                <td>Signals and Systems</td>
-                <td>Alan V. Oppenheim</td>
-                <td>ECE</td>
-                <td>₹450</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="book2"></td>
-                <td><img src="https://th.bing.com/th/id/OIP.wJSy58ptQJWoxRzLwuuwQQAAAA?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Microelectronics" width="60"></td>
-                <td>Microelectronics</td>
-                <td>Millman & Halkias</td>
-                <td>ECE</td>
-                <td>₹500</td>
-            
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="book3"></td>
-                <td><img src="https://m.media-amazon.com/images/I/718em8ReG3S.jpg" alt="Electrical Machines" width="60"></td>
-                <td>Electrical Machines</td>
-                <td>P.S. Bimbhra</td>
-                <td>EEE</td>
-                <td>₹480</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="book2"></td>
-                <td><img src="https://m.media-amazon.com/images/I/71SLTQIL2kL._SL1363_.jpg" alt="Power System" width="60"></td>
-                <td>Power System Analysis</td>
-                <td>Hadi Saadat</td>
-                <td>EEE</td>
-                <td>₹520</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="book4"></td>
-                <td><img src="https://images-na.ssl-images-amazon.com/images/I/81MaKsnme4L.jpg" alt="Surveying Vol I" width="60"></td>
-                <td>Surveying Vol I</td>
-                <td>B.C. Punmia</td>
-                <td>CIVIL</td>
-                <td>₹430</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="book2"></td>
-                <td><img src="https://th.bing.com/th/id/OIP.mXluDeCbBZ3HIttsGbvkrAHaJl?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Building Materials" width="60"></td>
-                <td>Building Materials</td>
-                <td>S.K. Duggal</td>
-                <td>CIVIL</td>
-                <td>₹390</td>
-        </table>
-        <br>
-        <input type="submit" value="Add to Cart">
-        <input type="reset" value="Reset">
-    </form>
+    <table>
+        <tr>
+            <th>Book Image</th><th>Book Title</th><th>Author</th><th>Department</th><th>Price</th><th>Add to Cart</th>
+        </tr>
+        <tr>
+            <td><img src="https://3.bp.blogspot.com/-t7-Y94gUMFs/Ui7U3i-uAdI/AAAAAAAAARY/zaBfpYu9TJI/s1600/cn.png" width="60"></td>
+            <td>Computer Networks</td>
+            <td>Andrew S. Tanenbaum</td>
+            <td>CSE</td>
+            <td>₹500</td>
+            <td><button onclick="addToCart({img:'https://3.bp.blogspot.com/-t7-Y94gUMFs/Ui7U3i-uAdI/AAAAAAAAARY/zaBfpYu9TJI/s1600/cn.png',title:'Computer Networks',author:'Andrew S. Tanenbaum',dept:'CSE',price:'₹500'})">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="https://m.media-amazon.com/images/I/71kBRLo8ZtL._SL1414_.jpg" width="60"></td>
+            <td>Data Structures and Algorithms</td>
+            <td>Alfred V. Aho</td>
+            <td>CSE</td>
+            <td>₹550</td>
+            <td><button onclick="addToCart({img:'https://m.media-amazon.com/images/I/71kBRLo8ZtL._SL1414_.jpg',title:'Data Structures and Algorithms',author:'Alfred V. Aho',dept:'CSE',price:'₹550'})">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="https://tse4.mm.bing.net/th/id/OIP.vkyFhWbJIo1ijE0pNpuNiAAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" width="60"></td>
+            <td>Operating System Concepts</td>
+            <td>Silberschatz, Galvin</td>
+            <td>CSE</td>
+            <td>₹600</td>
+            <td><button onclick="addToCart({img:'https://tse4.mm.bing.net/th/id/OIP.vkyFhWbJIo1ijE0pNpuNiAAAAA?rs=1&pid=ImgDetMain&o=7&rm=3',title:'Operating System Concepts',author:'Silberschatz, Galvin',dept:'CSE',price:'₹600'})">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="https://logicwork.in/wp-content/uploads/2022/07/Signals-and-Systems-by-Oppenheim.jpeg" width="60"></td>
+            <td>Signals and Systems</td>
+            <td>Alan V. Oppenheim</td>
+            <td>ECE</td>
+            <td>₹450</td>
+            <td><button onclick="addToCart({img:'https://logicwork.in/wp-content/uploads/2022/07/Signals-and-Systems-by-Oppenheim.jpeg',title:'Signals and Systems',author:'Alan V. Oppenheim',dept:'ECE',price:'₹450'})">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="https://th.bing.com/th/id/OIP.wJSy58ptQJWoxRzLwuuwQQAAAA?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" width="60"></td>
+            <td>Microelectronics</td>
+            <td>Millman & Halkias</td>
+            <td>ECE</td>
+            <td>₹500</td>
+            <td><button onclick="addToCart({img:'https://th.bing.com/th/id/OIP.wJSy58ptQJWoxRzLwuuwQQAAAA?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3',title:'Microelectronics',author:'Millman & Halkias',dept:'ECE',price:'₹500'})">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="https://m.media-amazon.com/images/I/718em8ReG3S.jpg" width="60"></td>
+            <td>Electrical Machines</td>
+            <td>P.S. Bimbhra</td>
+            <td>EEE</td>
+            <td>₹480</td>
+            <td><button onclick="addToCart({img:'https://m.media-amazon.com/images/I/718em8ReG3S.jpg',title:'Electrical Machines',author:'P.S. Bimbhra',dept:'EEE',price:'₹480'})">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="https://m.media-amazon.com/images/I/71SLTQIL2kL._SL1363_.jpg" width="60"></td>
+            <td>Power System Analysis</td>
+            <td>Hadi Saadat</td>
+            <td>EEE</td>
+            <td>₹520</td>
+            <td><button onclick="addToCart({img:'https://m.media-amazon.com/images/I/71SLTQIL2kL._SL1363_.jpg',title:'Power System Analysis',author:'Hadi Saadat',dept:'EEE',price:'₹520'})">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="https://images-na.ssl-images-amazon.com/images/I/81MaKsnme4L.jpg" width="60"></td>
+            <td>Surveying Vol I</td>
+            <td>B.C. Punmia</td>
+            <td>CIVIL</td>
+            <td>₹430</td>
+            <td><button onclick="addToCart({img:'https://images-na.ssl-images-amazon.com/images/I/81MaKsnme4L.jpg',title:'Surveying Vol I',author:'B.C. Punmia',dept:'CIVIL',price:'₹430'})">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="https://th.bing.com/th/id/OIP.mXluDeCbBZ3HIttsGbvkrAHaJl?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" width="60"></td>
+            <td>Building Materials</td>
+            <td>S.K. Duggal</td>
+            <td>CIVIL</td>
+            <td>₹390</td>
+            <td><button onclick="addToCart({img:'https://th.bing.com/th/id/OIP.mXluDeCbBZ3HIttsGbvkrAHaJl?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3',title:'Building Materials',author:'S.K. Duggal',dept:'CIVIL',price:'₹390'})">Add to Cart</button></td>
+        </tr>
+    </table>
 </body>
 </html>
